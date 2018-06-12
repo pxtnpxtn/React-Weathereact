@@ -20,12 +20,12 @@ class App extends Component {
   getWeather = async e => {
     e.preventDefault();
     const city = e.target.elements.city.value;
-    const country = e.target.elements.country.value;
+    // const country = e.target.elements.country.value;
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`
+      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
     );
     const data = await api_call.json();
-    if (city && country) {
+    if (city) {
       this.setState({
         temperature: data.main.temp,
         city: data.name,
@@ -41,14 +41,14 @@ class App extends Component {
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: "Please enter values."
+        error: "Please enter a city name."
       });
     }
   };
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Title />
         <Form getWeather={this.getWeather} />
         <Weather
@@ -59,7 +59,7 @@ class App extends Component {
           description={this.state.description}
           error={this.state.error}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }

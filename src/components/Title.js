@@ -1,12 +1,10 @@
 import React from "react";
 
-const Title = () => {
-  return (
-    <div>
-      <h1>Weathereact</h1>
-      <p>Find out the temperature, conditions and more...</p>
-    </div>
-  );
-};
+const Title = () => (
+  <React.Fragment>
+    <h1>Weathereact</h1>
+    <p>Find out the temperature, conditions and more...</p>
+  </React.Fragment>
+);
 
 export default Title;
