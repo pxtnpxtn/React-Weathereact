@@ -20,7 +20,6 @@ class App extends Component {
   getWeather = async e => {
     e.preventDefault();
     const city = e.target.elements.city.value;
-    // const country = e.target.elements.country.value;
     const api_call = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
     );
@@ -48,26 +47,26 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <div className="wrapper">
-          <div className="main">
-            <div className="container">
-              <div className="row">
-                <Title />
-                <Form getWeather={this.getWeather} />
-                <Weather
-                  temperature={this.state.temperature}
-                  city={this.state.city}
-                  country={this.state.country}
-                  humidity={this.state.humidity}
-                  description={this.state.description}
-                  error={this.state.error}
-                />
-              </div>
+          <div className="container">
+            <div className="title-container">
+              <Title />
+            </div>
+            <div className="form-container">
+              <Form getWeather={this.getWeather} />
+              <Weather
+                temperature={this.state.temperature}
+                humidity={this.state.humidity}
+                city={this.state.city}
+                country={this.state.country}
+                description={this.state.description}
+                error={this.state.error}
+              />
             </div>
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }
