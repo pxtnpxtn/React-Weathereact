@@ -49,16 +49,24 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Title />
-        <Form getWeather={this.getWeather} />
-        <Weather
-          temperature={this.state.temperature}
-          city={this.state.city}
-          country={this.state.country}
-          humidity={this.state.humidity}
-          description={this.state.description}
-          error={this.state.error}
-        />
+        <div className="wrapper">
+          <div className="main">
+            <div className="container">
+              <div className="row">
+                <Title />
+                <Form getWeather={this.getWeather} />
+                <Weather
+                  temperature={this.state.temperature}
+                  city={this.state.city}
+                  country={this.state.country}
+                  humidity={this.state.humidity}
+                  description={this.state.description}
+                  error={this.state.error}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </React.Fragment>
     );
   }
